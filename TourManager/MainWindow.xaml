@@ -11,7 +11,27 @@
             </controls:Flyout>
         </controls:FlyoutsControl>
     </controls:MetroWindow.Flyouts>
-    <Grid>
+    <controls:MetroWindow.RightWindowCommands>
+        <controls:WindowCommands>
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Content="Connection Status : Connected!"/>
+            <Button HorizontalAlignment="Center" VerticalAlignment="Center" Content="Settings" />
+            <!--<Button>
+                <StackPanel Orientation="Horizontal">
+                    <Rectangle Width="20" Height="20"
+                   Fill="{Binding RelativeSource={RelativeSource AncestorType=Button}, Path=Foreground}">
+                        <Rectangle.OpacityMask>
+                            <VisualBrush Stretch="Fill"
+                         Visual="{StaticResource appbar_cupcake}" />
+                        </Rectangle.OpacityMask>
+                    </Rectangle>
+                    <TextBlock Margin="4 0 0 0"
+                   VerticalAlignment="Center"
+                   Text="deploy cupcakes" />
+                </StackPanel>
+            </Button>-->
+        </controls:WindowCommands>
+    </controls:MetroWindow.RightWindowCommands>
+    <Grid x:Name="LayoutRootMain">
         
         <TabControl Margin="10,10,157,10">
             <TabItem Header="Dashboard">

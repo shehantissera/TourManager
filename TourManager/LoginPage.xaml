@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         Title="System Login" Height="169.895" Width="407.919" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Icon="Images/logo.ico">
-    <Grid>
+    <Grid x:Name="LayoutRoot">
         <TextBox controls:TextboxHelper.Watermark="someone@somewhere.com" controls:TextboxHelper.ClearTextButton="True" x:Name="txtUserName" HorizontalAlignment="Left" Height="23" Margin="192,26,0,0" TextWrapping="Wrap" Text="shehanproductions@ymail.com" VerticalAlignment="Top" Width="184"/>
         <PasswordBox controls:TextboxHelper.ClearTextButton="True" x:Name="txtPassword" HorizontalAlignment="Left" Margin="192,54,0,0" VerticalAlignment="Top" Width="184" Height="23" Password="logmein123" />
         <Button Style="{StaticResource SquareButtonStyle}" x:Name="btnSignIn" Content="Sign in" HorizontalAlignment="Left" Margin="301,88,0,0" VerticalAlignment="Top" Width="75" Click="btnSignIn_Click"/>

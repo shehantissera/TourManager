@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
+using TourManager.ViewModel;
 
 namespace TourManager
 {
@@ -23,28 +24,21 @@ namespace TourManager
     /// </summary>
     public partial class MainWindow : MetroWindow
     {
-        WebInvoker Invoker { get; set; }
-        LocalSecurity Security { get; set; }
-        public MainWindow()
+        App_ViewModel ViewModel { get; set; }
+        public MainWindow(App_ViewModel _viewmodel)
         {
             InitializeComponent();
-            InitializingSystem();
+            InitializingSystem(_viewmodel);
         }
 
-        private void InitializingSystem()
+        private void InitializingSystem(App_ViewModel _viewmodel)
         {
-            Invoker = new WebInvoker();
-            Security = new LocalSecurity();
-
-            //MessageBox.Show("testing message");
-            //var controller = this.ShowMessageAsync("This is the title", "Some message");
-            
+            this.ViewModel = _viewmodel;
+            LayoutRootMain.DataContext = ViewModel;
         }
 
         private void btnSub_Click(object sender, RoutedEventArgs e)
         {
-            //InsertData subWindow = new InsertData(Invoker,Security);
-            //subWindow.Show();
             DialogManager.ShowMessageAsync(this, "Error", "This is a message", MessageDialogStyle.Affirmative, new MetroDialogSettings { ColorScheme = MetroDialogColorScheme.Accented });
         }
 

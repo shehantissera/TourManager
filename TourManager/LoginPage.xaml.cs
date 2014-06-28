@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TourManager.Contracts;
 using MahApps.Metro.Controls;
+using TourManager.ViewModel;
 
 namespace TourManager
 {
@@ -24,9 +25,19 @@ namespace TourManager
     {
         WebInvoker Invoker { get; set; }
         LocalSecurity Security { get; set; }
+        App_ViewModel ViewModel { get; set; }
         public LoginPage()
         {
             InitializeComponent();
+            InitializeSystem();
+        }
+
+        private void InitializeSystem()
+        {
+            this.Invoker = new WebInvoker();
+            this.Security = new LocalSecurity();
+            this.ViewModel = new App_ViewModel(Invoker,Security);
+            LayoutRoot.DataContext = ViewModel;
         }
 
         private void btnSignIn_Click(object sender, RoutedEventArgs e)
@@ -42,7 +53,8 @@ namespace TourManager
             User newuser = new User();
             string postData2 = newuser.Validate(user, pass,"");
             //Invoker.GenerateRequest(postData2);
-            MainWindow main = new MainWindow();
+
+            MainWindow main = new MainWindow(ViewModel);
             main.Show();
             this.Close();
 
