@@ -14,5 +14,6 @@ namespace CommonLib.Contracts
         public string FirstName { get; set; }
         public string SecondName { get; set; }
         public string CompanyID { get; set; }
+        public string ComputerIP { get; set; }
     }
 }
